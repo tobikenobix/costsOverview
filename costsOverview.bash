@@ -5,17 +5,17 @@
 #path to saving files
 SavingFile=/home/tobias/TestSkripte/SpeicherBuchhaltung
 
-Budget=$(cat $SavingFile | cut -d= -f2)
-CostsHousehold=$(cat $SavingFile | cut -d= -f4)
-CostsCar=$(cat $SavingFile | cut -d= -f6)
-CostsLuxury=$(cat $SavingFile | cut -d= -f8)
-CostsStudy=$(cat $SavingFile | cut -d= -f10)
-CostsFood=$(cat $SavingFile | cut -d= -f12)
-CostsHygiene=$(cat $SavingFile | cut -d= -f14)
-CostsEntertainment=$(cat $SavingFile | cut -d= -f16)
-CostsOther=$(cat $SavingFile | cut -d= -f18)
-CostsMonthly=$(cat $SavingFile | cut -d= -f20)
-CostsAll=$(cat $SavingFile | cut -d= -f22)
+Budget=$(cut -d= -f2 $SavingFile)
+CostsHousehold=$(cut -d= -f4 $SavingFile)
+CostsCar=$(cut -d= -f6 $SavingFile)
+CostsLuxury=$(cut -d= -f8 $SavingFile)
+CostsStudy=$(cut -d= -f10 $SavingFile)
+CostsFood=$(cut -d= -f12 $SavingFile)
+CostsHygiene=$(cut -d= -f14 $SavingFile)
+CostsEntertainment=$(cut -d= -f16 $SavingFile)
+CostsOther=$(cut -d= -f18 $SavingFile)
+CostsMonthly=$(cut -d= -f20 $SavingFile)
+CostsAll=$(cut -d= -f22 $SavingFile)
 CostsMonthlyOld=
 
 # check if script is called with parameters - if not show current budget
@@ -113,6 +113,7 @@ then
 
                 #shows help; if new *Cost is changed/added, change help option too so it stays up to date
                 "--help")
+                        #adding costs
                         printf "%-s \n \t" "-a: add following costs:";
                         printf "%-s \n \t" "-h: Household related costs";
                         printf "%-s \n \t" "-c: car related costs";
@@ -122,6 +123,7 @@ then
                         printf "%-s \n \t" "-y: hygiene article related costs";
                         printf "%-s \n \t" "-e: entertainment related costs";
                         printf "%-s \n \n" "-o: other related costs";
+                        #change costs
                         printf "%-s \n \t" "--change: change the value of the following costs:";
                         printf "%-s \n \t" "-b:  budget";
                         printf "%-s \n \t" "-h: household";
@@ -130,7 +132,21 @@ then
                         printf "%-s \n \t" "-s: study";
                         printf "%-s \n \t" "-y: hygiene";
                         printf "%-s \n \t" "-e: entertainment";
-                        printf "%-s \n "   "-o: other";;
+                        printf "%-s \n \n"   "-o: other";
+                        #show costs
+                        printf "%-s \n \t" "--print: prints following costs:";
+                        printf "%-s \n \t" "-b:  budget";
+                        printf "%-s \n \t" "-h: household";
+                        printf "%-s \n \t" "-c: car";
+                        printf "%-s \n \t" "-l: luxury";
+                        printf "%-s \n \t" "-s: study";
+                        printf "%-s \n \t" "-y: hygiene";
+                        printf "%-s \n \t" "-e: entertainment";
+                        printf "%-s \n \t" "-o: other";
+                        printf "%-s \n \t" "-a: all costs added together";
+                        printf "%-s \n \t" "-t: print all costs and budget";;
+
+
 
         esac
 
